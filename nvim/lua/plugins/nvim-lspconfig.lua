@@ -32,8 +32,6 @@ return {
         'bashls',
         'cssls',
         'html',
-        'gradle_ls',
-        'groovyls',
         'lua_ls',
         'jdtls',
         'jsonls',
@@ -128,9 +126,6 @@ lspconfig.gopls.setup {
         "typescriptreact",
         "javascriptreact",
         "css",
-        "sass",
-        "scss",
-        "less",
         "java",
         "jdtls"
       },
