@@ -38,3 +38,7 @@ opt.wrap = true
 require("core.options")
 require("core.keymaps")
 require("core.snippets")
+local todo = require("custom")
+todo.setup({
+  target_file = "~/todos/todos.md"
+})

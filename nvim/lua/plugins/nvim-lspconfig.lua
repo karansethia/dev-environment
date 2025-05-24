@@ -32,10 +32,7 @@ return {
         'bashls',
         'cssls',
         'html',
-        'gradle_ls',
-        'groovyls',
         'lua_ls',
-        'jdtls',
         'jsonls',
         'lemminx',
         'marksman',
@@ -44,15 +41,14 @@ return {
         'sqlls',
         'tailwindcss',
         'ts_ls',
-        'gopls'
+        'gopls',
+        'jdtls'
       }
     })
 
     require('mason-tool-installer').setup({
       -- Install these linters, formatters, debuggers automatically
       ensure_installed = {
-        'java-debug-adapter',
-        'java-test',
       },
     })
 
@@ -96,21 +92,21 @@ return {
 
     local util = require("lspconfig/util")
 
-lspconfig.gopls.setup {
-  capabilities = lsp_capabilities,
-  cmd = {"gopls"},
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
+    lspconfig.gopls.setup {
+      capabilities = lsp_capabilities,
+      cmd = { "gopls" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+        },
       },
-    },
-  },
-}
+    }
 
     lspconfig.ts_ls.setup({
       capabilities = lsp_capabilities,
@@ -128,11 +124,6 @@ lspconfig.gopls.setup {
         "typescriptreact",
         "javascriptreact",
         "css",
-        "sass",
-        "scss",
-        "less",
-        "java",
-        "jdtls"
       },
     })
 
